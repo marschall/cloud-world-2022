@@ -42,11 +42,20 @@ class OjdbcJsonTests {
   }
 
   @Test
-  void jdbcTemplate() {
+  void jdbcTemplateJsonObject() {
     javax.json.JsonObject doc = this.jdbcOperations.queryForObject("""
              SELECT JSON('{"projectId": "NCA-029-0"}')
-             FROM dual""", javax.json.JsonObject.class); // no longer needed on 23
+             FROM dual""", javax.json.JsonObject.class);
     assertEquals("NCA-029-0", doc.getString("projectId"));
+  }
+
+  @Test
+  void jdbcTemplateParsing() {
+    String projectId = this.jdbcOperations.queryForObject("""
+             SELECT *
+             FROM JSON_TABLE('{"projectId": "NCA-029-0"}',
+                 '$' COLUMNS (projectId VARCHAR2(9)))""", String.class);
+    assertEquals("NCA-029-0", projectId);
   }
 
 }
