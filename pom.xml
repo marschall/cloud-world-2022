@@ -47,9 +47,23 @@
         <scope>import</scope>
       </dependency>
       <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-framework-bom</artifactId>
+        <version>5.3.24</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
         <groupId>com.oracle.database.jdbc</groupId>
         <artifactId>ojdbc-bom</artifactId>
         <version>21.7.0.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-bom</artifactId>
+        <version>2.19.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -68,11 +82,49 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-jcl</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>javax.json</groupId>
       <artifactId>javax.json-api</artifactId>
       <version>1.1.4</version>
       <scope>test</scope>
-  </dependency>
+    </dependency>
+
+    <!-- logging -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-jcl</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
