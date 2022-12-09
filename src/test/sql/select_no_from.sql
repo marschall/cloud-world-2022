@@ -1,0 +1,4 @@
+SELECT SYSTIMESTAMP;
+
+SELECT xx.nextval;
+
