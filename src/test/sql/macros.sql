@@ -1,15 +1,15 @@
 CREATE TABLE motd (
-  id PRIMARY KEY,
-  effective_from DATE NOT NULL,
-  effective_to DATE
+  id             NUMBER(8) PRIMARY KEY,
+  effective_from DATE      NOT NULL,
+  effective_to   DATE
 );
 
 
 -- Scalar Macro
 
 create or replace function is_valid_at (effective_from DATE
-                                       ,effective_to DATE
-                                       ,DATE effective_date)
+                                       ,effective_to   DATE
+                                       ,effective_date DATE )
   return VARCHAR2 sql_macro(scalar) AS
 begin
   return q'{
@@ -24,7 +24,7 @@ SELECT *
 
 -- Table Macro
 
-create or replace function valid_mod (DATE effective_date)
+create or replace function valid_mod (effective_date DATE)
   return VARCHAR2 sql_macro(table) AS
 begin
   -- macro of macro
@@ -41,7 +41,7 @@ SELECT *
 -- Polymorphic Macro
 
 
-create or replace function valid_table (dbms_tf.table_t t
+create or replace function valid_table (t dbms_tf.table_t
                                        ,effective_from_column dbms_tf.column_t
                                        ,effective_to_column dbms_tf.column_t)
   return VARCHAR2 sql_macro(table) AS
