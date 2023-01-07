@@ -1,7 +1,7 @@
 CREATE TABLE motd (
   id PRIMARY KEY,
   effective_from DATE NOT NULL,
-  effective_to VARCHAR2(255)
+  effective_to DATE
 );
 
 

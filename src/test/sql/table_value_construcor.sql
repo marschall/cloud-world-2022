@@ -13,7 +13,7 @@ SELECT 'CSE', 'Customer Success Executive'
 
 SELECT *
   FROM (VALUES
-	('PL', 'Project Manager'),
+        ('PL', 'Project Manager'),
         ('RE', 'Requirement Engineer'),
         ('RTE', 'Release Train Engineer'),
         ('CSE', 'Customer Success Executive'));

@@ -19,7 +19,6 @@ class RegexTests {
   
   @Test
   void longInput() {
-//    String input = "-- play happy sound for player to enjoy" + " ".repeat(20_000);
     String input = "-- play happy sound for player to enjoy" + repeat(' ', 20_000);
     String trimed = TRIM_SPACES.matcher(input).replaceAll("");
     assertEquals("-- play happy sound for player to enjoy", trimed);

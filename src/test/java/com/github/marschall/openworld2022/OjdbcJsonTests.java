@@ -29,9 +29,6 @@ class OjdbcJsonTests {
          var preparedStatement = connection.prepareStatement("""
              SELECT JSON('{"projectId": "NCA-029-0"}')
              FROM dual"""); // no longer needed on 23
-//        var preparedStatement = connection.prepareStatement("""
-//             SELECT JSON({'projectId': 'NCA-029-0'})
-//             FROM dual"""); // no longer needed on 23
          var resultSet = preparedStatement.executeQuery()) {
       while (resultSet.next()) {
         javax.json.JsonObject doc = resultSet.getObject(1, javax.json.JsonObject.class);
